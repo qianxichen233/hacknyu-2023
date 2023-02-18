@@ -1,14 +1,21 @@
-const browserObject = require('./browser');
-const scraperController = require('./pageController.js');
-
+const fs = require('fs');
+import got from 'got';
+const jsdom = require("jsdom");
+const {JSDOM} = jsdom;
 
 export default function handler(req, res) {
 
-    let browserInstance = browserObject.startBrowser();
+    // make date dynamic
+    const mlhURL = 'https://mlh.io/seasons/2023/events';
 
-// Pass the browser instance to the scraper controller
-scraperController(browserInstance)
-    res.status(200).json({ name: 'Test Endpoint' })
-  }
-  
+    got(mlhURL).then(response => {
+        const dom = new JSDOM(response.body);
+        console.log(dom.window.document.getElementsByClassName('container feature'));
+    }).catch(err => {
+        console.log(err);
+    });
 
+    res.status(200).json({
+        name: 'Test Endpoint'
+    })
+}
