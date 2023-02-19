@@ -44,8 +44,7 @@ const dummyData = {
             Icon: Price,
         },
 
-        operator: "Jetblue Airways",
-        flightID: "JT22554D",
+        Carriers: "plane",
     },
 };
 

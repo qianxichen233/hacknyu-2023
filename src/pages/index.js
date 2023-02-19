@@ -4,15 +4,14 @@ import Search from "../Components/Search";
 import SearchBar from "../Components/SearchBar";
 import { Inter } from "@next/font/google";
 import styles from "@/styles/Home.module.css";
-<<<<<<< HEAD
+
 import { useState } from "react";
-=======
 import Header from "../Components/Header";
->>>>>>> shizhan
 
 const inter = Inter({ subsets: ["latin"] });
 
 import { Location, Date, Price, Link } from "../Components/UI/Icons";
+import PlaceHolder from "@/Components/PlaceHolder";
 
 export default function Home() {
     const [hackData, setHackData] = useState(null);
@@ -22,7 +21,7 @@ export default function Home() {
         let hackData = [];
         for (const hackathon of data) {
             const hackObject = {};
-            hackObject["name"] = hackathon.hackathon.hackathonName;
+            hackObject["Name"] = hackathon.hackathon.hackathonName;
             hackObject["imageURL"] = hackathon.hackathon.imgURL;
             hackObject["location"] = {
                 value: hackathon.hackathon.hackathonLocation,
@@ -70,12 +69,15 @@ export default function Home() {
                 <title>HackByFlight</title>
             </Head>
             <main>
-                <Header/>
+                <Header />
                 <SearchBar setHackDate={setHackDataHandler} />
-                {hackData &&
+                {hackData ? (
                     hackData.map((data, index) => {
                         return <Search hackData={data} key={index} />;
-                    })}
+                    })
+                ) : (
+                    <PlaceHolder />
+                )}
             </main>
         </>
     );
