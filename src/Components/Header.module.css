@@ -7,14 +7,18 @@
   align-items: center;
   position: fixed;
   top: 0px;
-  padding: 0 10px;
+  padding: 0 30px;
 }
 
 .name{
     font-size:16px;
-
+    font-weight: 400;
 }
 
 .info{
     display:flex;
+}
+
+.item{
+  list-style-type: none;
 }

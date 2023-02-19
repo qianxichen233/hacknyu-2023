@@ -4,12 +4,8 @@ const Header=()=>{
     return (
         <div>
            <div className={styles.header}>
-          
           <div className={styles.name}>HackByFlight</div>
-          <div className={styles.info}>
-          <div className={styles.name}>Team Member</div>
-          <div>Join us</div>
-          </div>     
+        
         </div> 
         
         </div>
