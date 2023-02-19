@@ -4,7 +4,11 @@ import Search from "../Components/Search";
 import SearchBar from "../Components/SearchBar";
 import { Inter } from "@next/font/google";
 import styles from "@/styles/Home.module.css";
+<<<<<<< HEAD
 import { useState } from "react";
+=======
+import Header from "../Components/Header";
+>>>>>>> shizhan
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -66,6 +70,7 @@ export default function Home() {
                 <title>HackByFlight</title>
             </Head>
             <main>
+                <Header/>
                 <SearchBar setHackDate={setHackDataHandler} />
                 {hackData &&
                     hackData.map((data, index) => {

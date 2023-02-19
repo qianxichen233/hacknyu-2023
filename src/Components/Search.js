@@ -3,6 +3,7 @@ import styles from "./Search.module.css";
 
 import Modal from "./UI/Modal";
 import DetailCart from "./UI/Cart/DetailCart";
+import PlaceHolder from "./PlaceHolder";
 
 import { Location, Date, Price, Link } from "./UI/Icons";
 
