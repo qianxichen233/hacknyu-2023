@@ -5,7 +5,6 @@ const Header=()=>{
         <div>
            <div className={styles.header}>
           <div className={styles.name}>HackByFlight</div>
-        
         </div> 
         
         </div>
