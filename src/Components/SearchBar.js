@@ -18,6 +18,7 @@ const SearchBar = (props) => {
     console.log(startDate);
     const searchData = async () => {
         if (!address.valid) return;
+        props.setIsLoading(true);
         const response = await fetch(`/api/aggregate`, {
             method: "POST",
             body: JSON.stringify({
@@ -30,6 +31,7 @@ const SearchBar = (props) => {
         });
         const data = await response.json();
         props.setHackDate(data);
+        props.setIsLoading(false);
     };
 
     return (

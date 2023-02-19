@@ -7,7 +7,8 @@ const DetailCart = (props) => {
       <div className={classes.title}>{props.hackathon_info.Name}</div>
       {/* <div className={classes.line} /> */}
       {Object.keys(props.hackathon_info).map((key) => {
-        if (key === "name") return;
+        if (key === "Name") return;
+        if(key==="imageURL") return;
         const { value, Icon } = props.hackathon_info[key];
 
         let text;
@@ -79,19 +80,19 @@ const DetailCart = (props) => {
         </div>
         <div className={classes.flightDetailRow}>
           <div className={classes.flightOperator}>
-            <span className={classes.flightTitle}>OPERATOR</span>
-            <span className={classes.detail}>{props.flight_info.operator}</span>
+            <span className={classes.flightTitle}>DURATION</span>
+            <span className={classes.detail}>{props.flight_info.Duration} hours</span>
           </div>
           <div className={classes.flightNumber}>
-            <span className={classes.flightTitle}>FLIGHT</span>
+            <span className={classes.flightTitle}>CARRIES</span>
             <span className={classes.flightdetail}>
-              {props.flight_info.flightID}
+              {props.flight_info.Carriers}
             </span>
           </div>
           <div className={classes.flightPrice}>
             <span className={classes.flightTitle}>PRICE</span>
             <span className={classes.flightdetail}>
-              {props.flight_info.price.value}
+              ${props.flight_info.price.value}
             </span>
           </div>
         </div>
