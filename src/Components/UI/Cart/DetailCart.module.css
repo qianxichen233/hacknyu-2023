@@ -1,55 +1,186 @@
 .cart {
-    min-width: 200px;
+  min-width: 200px;
+  width: 700px;
+  height: 380px;
+  display: flex;
+  align-items: center;
+  justify-self: center;
+  flex-direction: column;
 
-    display: flex;
-    align-items: center;
-    justify-self: center;
-    flex-direction: column;
-
-    border: 1px solid lightgrey;
-    border-radius: 10px;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    -ms-border-radius: 10px;
-    -o-border-radius: 10px;
-
-    padding: 10px;
-
-    background-color: white;
+  border: 1px solid lightgrey;
+  border-radius: 20px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  box-shadow: 0px 0px 5px rgba(0,0,0,0.2);
+  padding: 10px 0px 20px 0;
+  box-sizing: border-box;
+  background-color: white;
+  overflow:hidden;
 }
 
+
+
 .item {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: left;
-    text-align: left;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: left;
+  font-size:18px;
+  line-height: 30px;
+  text-transform: capitalize;
 }
 
 .item :first-child {
-    font-weight: bold;
-    margin-right: 5px;
-    user-select: none;
+  font-weight: bold;
+  margin-right: 5px;
+  user-select: none;
 }
 
 .itemValue {
-    margin-left: 10px;
+  margin-left: 10px;
+  cursor: pointer;
 }
 
 .title {
-    text-align: center;
-    font-weight: bold;
-    user-select: none;
+  text-align: center;
+  font-weight: bold;
+  user-select: none;
+  font-size:22px;
+  line-height: 40px;
+  margin-bottom: 10px;
 }
 
 .line {
-    height: 1px;
-    width: 80%;
+  height: 3px;
+  width: 90%;
 
-    background-color: lightgrey;
+  background-color: lightgrey;
 
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 10px;
-    margin-bottom: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
+.flightContent {
+  width: 100%;
+  height: 100px;
+  box-sizing: border-box;
+  padding:0 40px;
+}
+
+.flightRow {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.plane {
+  text-align: center;
+  position: relative;
+}
+
+.plane::before {
+  content: "";
+  width: 120px;
+  height: 3px;
+  background: #efefef;
+  position: absolute;
+  top: 45px;
+  left: -80px;
+}
+
+.plane::after {
+  content: "";
+  width: 120px;
+  height: 3px;
+  background-color: #efefef;
+  position: absolute;
+  top: 45px;
+  right: -80px;
+}
+
+.fromCode{
+  width: 100px;
+  font-size: 50px;
+  color: #002c5f;
+  font-weight: 200;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  /* letter-spacing: 3px; */
+  
+    
+}
+.toCode {
+  width: 100px;
+  font-size: 50px;
+  color: #002c5f;
+  font-weight: 200;
+  display: flex;
+  
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  margin-left: auto;
+  margin-right: 0;
+  /* letter-spacing: 3px; */
+  
+}
+
+.fromCity,
+.toCity {
+  font-size: 18px;
+  color: #002c5f;
+  font-weight: 400;
+  display: block;
+}
+
+.flightFrom {
+  text-align: left;
+  float: left;
+}
+
+.flightTo {
+  text-align: right;
+  float: right;
+}
+
+.flightDetailRow {
+  margin-top:20px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.flightOperator{
+    text-align:left;
+    float:left;
+
+}
+
+.flightNumber{
+    padding-left:65px;
+}
+ .flightPrice{
+    float:right;
+    text-align:right;
+
+ }
+ .flightDetail{
+    margin-top:.2em;
+    color:#002C5F;
+    font-size:18px;
+    display: block;
+ }
+
+ .flightTitle{
+    color:#6a8597;
+    font-size:16px;
+    letter-spacing: 3px;
+    display:block;
+    user-select:none;
+
+ }
+
