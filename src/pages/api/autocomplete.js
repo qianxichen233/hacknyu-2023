@@ -1,7 +1,9 @@
 export default async function handler(req, res) {
+    if (req.method !== "GET")
+        return res.status(405).json({ error: "only accept GET method" });
 
     //address = req.address;
-    const address = "south"
+    const address = "south";
 
     console.log(process.env.Geoapify_API_key);
 
@@ -13,10 +15,9 @@ export default async function handler(req, res) {
         const jsonResponse = await response.json();
 
         return jsonResponse;
-      }
+    }
 
     const response = await fetchAutocompleteData(url);
     console.log(response);
     res.status(200).send(response);
-  }
-
+}
