@@ -43,7 +43,7 @@ const LocationEnterCart = (props) => {
                         <Sad size={40} />
                     </div>
                     <span>No Avaliable Suggestion</span>
-                    <span>Press Enter to use this address</span>
+                    {/* <span>Press Enter to use this address</span> */}
                 </div>
             );
         }
@@ -123,10 +123,10 @@ const LocationEnterCart = (props) => {
                     onChange={onAddressChangeHandler}
                     placeholder="What's Your Location"
                     onKeyDown={(e) => {
-                        if (e.key === "Enter")
-                            props.setAddress({
-                                plain: enteredAddress.value,
-                            });
+                        // if (e.key === "Enter")
+                        //     props.setAddress({
+                        //         plain: enteredAddress.value,
+                        //     });
                     }}
                 ></input>
             </div>
