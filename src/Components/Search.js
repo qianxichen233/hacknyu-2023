@@ -8,16 +8,16 @@ import { Location, Date, Price, Link } from "./UI/Icons";
 
 const dummyData = {
     hackathon_info: {
-        Name: "Hacknyu",
-        Location: {
+        name: "Hacknyu",
+        location: {
             value: "NYU Tandon",
             Icon: Location,
         },
-        Date: {
+        date: {
             value: "Feb 18-19",
             Icon: Date,
         },
-        URL: {
+        url: {
             value: {
                 url: "https://hacknyu.org/",
                 text: "Go To Website",
@@ -26,18 +26,23 @@ const dummyData = {
         },
     },
     flight_info: {
-        Source: {
-            value: "US",
+        source: {
+            value: "Tirane, AlbaniaS",
+            code:"ITA",
             Icon: Location,
         },
-        Destination: {
+        destination: {
             value: "NYC",
+            code:"MUC",
             Icon: Location,
         },
         price: {
             value: "10.99$",
             Icon: Price,
         },
+
+        operator: "Jetblue Airways",
+        flightID:"JT22554D",
     },
 };
 

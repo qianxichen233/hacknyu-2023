@@ -9,3 +9,10 @@ body {
     background-color: #f8f5f4;
     font-family: "Open Sans", "Helvetica Neue", "Arial", "sans-serif";
 }
+
+main{
+  min-width: 500px;
+}
+
+
+
