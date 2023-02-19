@@ -12,6 +12,7 @@ export default function handler(req, res) {
 
     let mlhData = [];
 
+    const eventLinkIndex = 0;
     const eventLogoIndex = 1;
     const eventNameIndex = 2;
     const eventDateIndex = 3;
@@ -26,6 +27,7 @@ export default function handler(req, res) {
             console.log("total number of hackathons found:", numOfHackathons);
             for (let i = 0; i < numOfHackathons; i++) {
                 let hackathonObject = {};
+                hackathonObject["url"] = getProperty(dom, i, eventLinkIndex);
                 hackathonObject["name"] = getProperty(dom, i, eventNameIndex);
                 hackathonObject["logoImageURL"] = getProperty(
                     dom,
@@ -66,11 +68,16 @@ function getProperty(domObject, positions, propertyIndex) {
     // resolve this so it reads hackathons from diversity list as well
     if (numberOfAttributes != 9) {
         //console.log("Hackathon Property:", domObject.window.document.getElementsByClassName('inner')[positions].children[propertyIndex].innerHTML);
+        console.log("PropertyIndex", propertyIndex);
+        if (propertyIndex == 0) {
+            console.log(domObject.window.document.getElementsByClassName("event-link")[positions].href);
+            return domObject.window.document.getElementsByClassName("event-link")[positions].href;
+        }
 
-        if (propertyIndex == 1) {
+        else if (propertyIndex == 1) {
             const urlTag = mainContainer.children[propertyIndex].innerHTML;
             const src = urlTag.slice(urlTag.indexOf("src")).split('"')[1];
-            console.log(src);
+            //console.log(src);
             return src;
         } else if (propertyIndex == 2) {
             const name = mainContainer.children[propertyIndex].textContent;
