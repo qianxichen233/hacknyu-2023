@@ -2,6 +2,7 @@ import React, { useState, useRef } from "react";
 import styles from "./SearchBar.module.css";
 // import DatePicker from "react-datepicker";
 // import "react-datepicker/dist/react-datepicker.css";
+import LocationSearchBar from "./LocationSearchBar";
 
 const SearchBar = () => {
     const [startDate, setStartDate] = useState(new Date());
@@ -13,13 +14,9 @@ const SearchBar = () => {
                 <label htmlFor="location" className={styles.label}>
                     Location
                 </label>
-                <input
-                    id="location"
-                    type="date"
-                    className={styles.datePick1}
-                    value={startDate}
-                    onChange={(e) => setStartDate(e.target.value)}
-                />
+                <div className={styles.datePick1}>
+                    <LocationSearchBar />
+                </div>
             </div>
             <div className={styles.conditionInput2}>
                 <label htmlFor="stateDate" className={styles.label}>

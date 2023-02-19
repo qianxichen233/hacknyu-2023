@@ -1,13 +1,4 @@
 .container {
-    /*
-        For Test Only
-    */
-    left: 100px;
-    top: 100px;
-    /*
-        For Test Only
-    */
-
     position: relative;
     display: flex;
     flex-direction: row;
