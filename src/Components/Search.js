@@ -69,7 +69,7 @@ const Search = () => {
                             <div></div>
                         </div>
                         <div className={styles.price}>
-                            <div className={styles.priceNumber}>80$</div>
+                            <div className={styles.priceNumber}>$80</div>
                             <div className={styles.round}>Round Trip</div>
                         </div>
                     </div>
