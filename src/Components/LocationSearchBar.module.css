@@ -1,0 +1,56 @@
+.container {
+    /*
+        For Test Only
+    */
+    left: 100px;
+    top: 100px;
+    /*
+        For Test Only
+    */
+
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 400px;
+    height: 50px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+
+    border: 1px solid black;
+    background-color: white;
+}
+
+.icon {
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+.address {
+    font-size: 12pt;
+    margin-left: 10px;
+    user-select: none;
+    cursor: pointer;
+    width: 80%;
+}
+
+.cancel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+
+.cancel:hover {
+    background-color: lightgrey;
+}
