@@ -15,19 +15,18 @@ const SearchBar = (props) => {
     const [startDate, setStartDate] = useState("");
     const [endDate, setEndDate] = useState("");
     const [address, setAddress] = useState(initialState);
+    console.log(startDate);
     const searchData = async () => {
         if (!address.valid) return;
         const response = await fetch(`/api/aggregate`, {
             method: "POST",
-            body: {
+            body: JSON.stringify({
                 location: address.city ? address.city : address.state,
                 date: {
-                    start: startDate
-                        ? startDate.toISOString().split("T")[0]
-                        : null,
-                    end: endDate ? endDate.toISOString().split("T")[0] : null,
+                    start: startDate ? startDate : null,
+                    end: endDate ? endDate : null,
                 },
-            },
+            }),
         });
         const data = await response.json();
         props.setHackDate(data);
@@ -56,8 +55,8 @@ const SearchBar = (props) => {
                             id="startDate"
                             type="date"
                             className={styles.datePick2}
-                            value={endDate}
-                            onChange={(e) => setEndDate(e.target.value)}
+                            value={startDate}
+                            onChange={(e) => setStartDate(e.target.value)}
                         />
                     </div>
                     <div className={styles.conditionInput3}>
@@ -69,8 +68,8 @@ const SearchBar = (props) => {
                                 id="endDate"
                                 type="date"
                                 className={styles.datePick3}
-                                value={startDate}
-                                onChange={(e) => setStartDate(e.target.value)}
+                                value={endDate}
+                                onChange={(e) => setEndDate(e.target.value)}
                             />
                         </div>
                     </div>

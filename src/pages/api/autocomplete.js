@@ -5,7 +5,7 @@ export default async function handler(req, res) {
     //address = req.address;
     const address = "south";
 
-    console.log(process.env.Geoapify_API_key);
+    //console.log(process.env.Geoapify_API_key);
 
     const url = `https://api.geoapify.com/v1/geocode/autocomplete?text=${address}&apiKey=${process.env.Geoapify_API_key}`;
 
@@ -18,6 +18,6 @@ export default async function handler(req, res) {
     }
 
     const response = await fetchAutocompleteData(url);
-    console.log(response);
+    //console.log(response);
     res.status(200).send(response);
 }

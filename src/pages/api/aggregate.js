@@ -6,11 +6,12 @@ import {
 } from "@/utils/utility_backend";
 import data from "./test_data.json" assert { type: "JSON" };
 export default async function handler(req, res) {
+    const body = JSON.parse(req.body);
     // if (req.method !== "POST")
     //     return res.status(405).json({ error: "only accept POST method" });
 
-    const hackathonData = await hackathon();
-    //console.log(hackathonData);
+    const hackathonData = await hackathon(body.date);
+    console.log(hackathonData);
 
     const online = ["Everywhere", "North American Timezone", "APAC Timezone"];
 
@@ -35,7 +36,7 @@ export default async function handler(req, res) {
     let sortedData = [];
     // 3 is just used for testing, in order to iterate through the whole list, we should be
     // doing hackathonData.length
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 15 && i < hackathonData.length; i++) {
         if (typeof hackathonData[i].date != "undefined") {
             const hackathonObject = hackathonData[i];
             const dateRange = hackathonObject.date;
@@ -44,36 +45,41 @@ export default async function handler(req, res) {
             if (online.includes(city)) {
                 continue;
             } else {
-                console.log(city);
+                //console.log(city);
             }
             //console.log(dateRange);
             const [departureDate, arrivalDate] = dateRange.split("-");
-            console.log(departureDate);
+            //console.log(departureDate);
             const month = monthNames[departureDate.substr(0, 3)]; // get month number from month name
 
             const day = departureDate.match(/\d+/)[0]; // extract day from input string using regex
 
             const newDateString = `${year}-${month}-${day}`; // combine year, month, and day in YYYY-MM-DD format
 
-            console.log(newDateString);
+            //console.log(newDateString);
 
-            //const from = req.body.location;
-            const from = "New York City";
+            const from = body.location;
+            //const from = "New York City";
             const to = city;
-            if (
-                city == "Rochester" ||
-                city == "Kolkata" ||
-                city == "Stony Brook" ||
-                city == "Ghaziabad" ||
-                city == "Athens"
-            ) {
-                continue;
-            }
+            // if (
+            //     city == "Rochester" ||
+            //     city == "Kolkata" ||
+            //     city == "Stony Brook" ||
+            //     city == "Ghaziabad" ||
+            //     city == "Athens"
+            // ) {
+            //     continue;
+            // }
 
             //const flight_dummy_data = get_flight_data_dummy();
-            const flight_dummy_data = await flight(from, to, newDateString);
+            let flight_dummy_data;
+            try {
+                flight_dummy_data = await flight(from, to, newDateString);
+            } catch (err) {
+                continue;
+            }
             console.log(flight_dummy_data);
-            console.log(flight_dummy_data["legs"][0]["carriers"][0]["name"]);
+            // console.log(flight_dummy_data["legs"][0]["carriers"][0]["name"]);
             let hackathonFlightObject = {};
             let hackObject = {};
             let flightObject = {};
@@ -107,20 +113,20 @@ export default async function handler(req, res) {
             hackathonFlightObject["hackathon"] = hackObject;
             hackathonFlightObject["flight"] = flightObject;
 
-            console.log(hackathonFlightObject);
+            //console.log(hackathonFlightObject);
 
             hackathonFlightData.push(hackathonFlightObject);
 
-            sortedData = hackathonFlightData.sort(comparePrices);
-            function comparePrices(a, b) {
-                return a.flight.price < b.flight.price;
-            }
-
-            console.log(sortedData);
+            //console.log(sortedData);
         }
     }
+    hackathonFlightData.sort((a, b) => {
+        return a.flight.price - b.flight.price;
+    });
 
-    res.status(200).send(sortedData);
+    console.log(hackathonFlightData);
+
+    res.status(200).send(hackathonFlightData);
 }
 
 function get_flight_data_dummy() {
