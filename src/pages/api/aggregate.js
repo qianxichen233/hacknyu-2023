@@ -36,7 +36,7 @@ export default async function handler(req, res) {
     let sortedData = [];
     // 3 is just used for testing, in order to iterate through the whole list, we should be
     // doing hackathonData.length
-    for (let i = 0; i < 6 && i < hackathonData.length; i++) {
+    for (let i = 0; i < hackathonData.length; i++) {
         if (typeof hackathonData[i].date != "undefined") {
             const hackathonObject = hackathonData[i];
             const dateRange = hackathonObject.date;
