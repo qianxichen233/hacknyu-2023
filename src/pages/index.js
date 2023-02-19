@@ -4,6 +4,7 @@ import Search from "../Components/Search";
 import SearchBar from "../Components/SearchBar";
 import { Inter } from "@next/font/google";
 import styles from "@/styles/Home.module.css";
+import Spinner from "../Components/Spinner"
 
 import { useState } from "react";
 import Header from "../Components/Header";
@@ -15,6 +16,7 @@ import PlaceHolder from "@/Components/PlaceHolder";
 
 export default function Home() {
     const [hackData, setHackData] = useState(null);
+    const [isLoading,setIsLoading]=useState(false);
 
     const setHackDataHandler = (data) => {
         console.log(data);
@@ -68,18 +70,25 @@ export default function Home() {
     return (
         <>
             <Head>
+            <link href="https://fonts.cdnfonts.com/css/segoe-ui-4" rel="stylesheet"/>
                 <title>HackByFlight</title>
             </Head>
             <main>
                 <Header />
-                <SearchBar setHackDate={setHackDataHandler} />
-                {hackData ? (
+                <SearchBar setHackDate={setHackDataHandler} setIsLoading={setIsLoading} />
+                {
+                  isLoading?<Spinner/>:<>
+                    {hackData ? (
                     hackData.map((data, index) => {
                         return <Search hackData={data} key={index} />;
                     })
                 ) : (
                     <PlaceHolder />
                 )}
+                  </>
+                }
+                
+                
             </main>
         </>
     );

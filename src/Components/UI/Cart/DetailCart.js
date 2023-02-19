@@ -80,8 +80,8 @@ const DetailCart = (props) => {
         </div>
         <div className={classes.flightDetailRow}>
           <div className={classes.flightOperator}>
-            <span className={classes.flightTitle}>OPERATOR</span>
-            <span className={classes.detail}>{props.flight_info.operator}</span>
+            <span className={classes.flightTitle}>DURATION</span>
+            <span className={classes.detail}>{props.flight_info.Duration} hours</span>
           </div>
           <div className={classes.flightNumber}>
             <span className={classes.flightTitle}>CARRIES</span>
@@ -92,7 +92,7 @@ const DetailCart = (props) => {
           <div className={classes.flightPrice}>
             <span className={classes.flightTitle}>PRICE</span>
             <span className={classes.flightdetail}>
-              {props.flight_info.price.value}
+              ${props.flight_info.price.value}
             </span>
           </div>
         </div>
