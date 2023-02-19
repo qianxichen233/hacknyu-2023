@@ -8,10 +8,57 @@ import { useState } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
+import { Location, Date, Price, Link } from "../Components/UI/Icons";
+
 export default function Home() {
     const [hackData, setHackData] = useState(null);
 
-    const setHackDataHandler = (data) => {};
+    const setHackDataHandler = (data) => {
+        console.log(data);
+        let hackData = [];
+        for (const hackathon of data) {
+            const hackObject = {};
+            hackObject["name"] = hackathon.hackathon.hackathonName;
+            hackObject["imageURL"] = hackathon.hackathon.imgURL;
+            hackObject["location"] = {
+                value: hackathon.hackathon.hackathonLocation,
+                Icon: Location,
+            };
+            hackObject["date"] = {
+                value: hackathon.hackathon.hackathonDate,
+                Icon: Date,
+            };
+            hackObject["url"] = {
+                value: {
+                    url: "https://hacknyu.org",
+                    text: "Go To Website",
+                },
+                Icon: Link,
+            };
+            const flightObject = {};
+            flightObject["source"] = {
+                value: hackathon.flight.source.name,
+                code: hackathon.flight.source.displayCode,
+                Icon: Location,
+            };
+            flightObject["destination"] = {
+                value: hackathon.flight.destination.name,
+                code: hackathon.flight.destination.displayCode,
+                Icon: Location,
+            };
+            flightObject["price"] = {
+                value: hackathon.flight.price,
+                Icon: Price,
+            };
+            flightObject["Carriers"] = hackathon.flight.Carriers;
+
+            hackData.push({
+                hackathon_info: hackObject,
+                flight_info: flightObject,
+            });
+        }
+        setHackData(hackData);
+    };
 
     return (
         <>
@@ -19,8 +66,11 @@ export default function Home() {
                 <title>HackByFlight</title>
             </Head>
             <main>
-                <SearchBar setHackData={setHackDataHandler} />
-                <Search hackData={hackData} />
+                <SearchBar setHackDate={setHackDataHandler} />
+                {hackData &&
+                    hackData.map((data, index) => {
+                        return <Search hackData={data} key={index} />;
+                    })}
             </main>
         </>
     );

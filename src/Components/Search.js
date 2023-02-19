@@ -9,6 +9,8 @@ import { Location, Date, Price, Link } from "./UI/Icons";
 const dummyData = {
     hackathon_info: {
         name: "Hacknyu",
+        imageURL:
+            "https://s3.amazonaws.com/assets.mlh.io/events/logos/000/212/477/thumb/brickhack100x100.png?1674064309",
         location: {
             value: "NYU Tandon",
             Icon: Location,
@@ -28,12 +30,12 @@ const dummyData = {
     flight_info: {
         source: {
             value: "Tirane, AlbaniaS",
-            code:"ITA",
+            code: "ITA",
             Icon: Location,
         },
         destination: {
             value: "NYC",
-            code:"MUC",
+            code: "MUC",
             Icon: Location,
         },
         price: {
@@ -42,13 +44,11 @@ const dummyData = {
         },
 
         operator: "Jetblue Airways",
-        flightID:"JT22554D",
+        flightID: "JT22554D",
     },
 };
 
-const Search = () => {
-    const [hackData, setHackData] = useState([]);
-
+const Search = ({ hackData }) => {
     const [onHover, setOnHover] = useState(false);
 
     return (
@@ -57,25 +57,29 @@ const Search = () => {
                 <li className={styles.item}>
                     <img
                         className={styles.logo}
-                        src="/images/img1.jpeg"
+                        src={hackData.hackathon_info.imageURL}
                         alt="logo"
                     ></img>
 
                     <div className={styles.content}>
                         <div className={styles.info}>
                             <div className={styles.title}>
-                                CrimsonCode Hackathon
+                                {hackData.hackathon_info.name}
                             </div>
-                            <div className={styles.time}>FEB 18TH - 19TH</div>
+                            <div className={styles.time}>
+                                {hackData.hackathon_info.date.value}
+                            </div>
                             <div className={styles.location}>
-                                Pullman, Washington
+                                {hackData.hackathon_info.location.value}
                             </div>
                             <div className={styles.pattern}>In-Person Only</div>
                             <div></div>
                         </div>
                         <div className={styles.price}>
-                            <div className={styles.priceNumber}>$80</div>
-                            <div className={styles.round}>Round Trip</div>
+                            <div className={styles.priceNumber}>
+                                {hackData.flight_info.price.value}
+                            </div>
+                            <div className={styles.round}>One-Way</div>
                         </div>
                     </div>
                 </li>
@@ -87,8 +91,8 @@ const Search = () => {
                 deactive={setOnHover.bind(null, false)}
             >
                 <DetailCart
-                    hackathon_info={dummyData.hackathon_info}
-                    flight_info={dummyData.flight_info}
+                    hackathon_info={hackData.hackathon_info}
+                    flight_info={hackData.flight_info}
                 />
             </Modal>
         </>

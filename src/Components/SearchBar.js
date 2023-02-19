@@ -12,28 +12,23 @@ const initialState = {
 };
 
 const SearchBar = (props) => {
-    const [startDate, setStartDate] = useState(null);
-    const [endDate, setEndDate] = useState(null);
+    const [startDate, setStartDate] = useState("");
+    const [endDate, setEndDate] = useState("");
     const [address, setAddress] = useState(initialState);
     const searchData = async () => {
         if (!address.valid) return;
-        const response = await fetch(
-            `${process.env.BACKEND_BASEURL}/api/aggregate`,
-            {
-                method: "POST",
-                body: {
-                    location: address.city ? address.city : address.state,
-                    date: {
-                        start: startDate
-                            ? startDate.toISOString().split("T")[0]
-                            : null,
-                        end: endDate
-                            ? endDate.toISOString().split("T")[0]
-                            : null,
-                    },
+        const response = await fetch(`/api/aggregate`, {
+            method: "POST",
+            body: {
+                location: address.city ? address.city : address.state,
+                date: {
+                    start: startDate
+                        ? startDate.toISOString().split("T")[0]
+                        : null,
+                    end: endDate ? endDate.toISOString().split("T")[0] : null,
                 },
-            }
-        );
+            },
+        });
         const data = await response.json();
         props.setHackDate(data);
     };
