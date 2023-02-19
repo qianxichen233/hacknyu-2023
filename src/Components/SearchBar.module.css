@@ -2,7 +2,7 @@
     width: 70%;
     height: 200px;
     background-color: white;
-    margin: 0 auto;
+    margin:0 auto;
 }
 
 .searchInput {
@@ -17,11 +17,11 @@
     flex-basis: 25%;
 }
 .conditionInput3 {
-    position: relative;
     flex-basis: 25%;
     display: flex;
     flex-direction: row;
-    justify-items: flex-end;
+    justify-content: flex-end;
+   
 }
 
 .label {
@@ -33,6 +33,8 @@
     height: 50px;
     width: 80%;
     margin-top: 10px;
+    /* padding:0 10px; */
+    box-sizing: border-box;
 }
 .datePick2 {
     height: 50px;
@@ -44,7 +46,8 @@
     padding: 0 10px;
     font-family: "Open Sans", "Helvetica Neue", "Arial", "sans-serif";
     margin-top: 10px;
-    padding-right: 0;
+    /* padding:0 10px; */
+    box-sizing: border-box;
 }
 
 .datePick3 {
@@ -54,19 +57,44 @@
     border-radius: 5px;
     font-size: 16px;
     border: 1px solid #727483;
-    padding-right: 0;
     font-family: "Open Sans", "Helvetica Neue", "Arial", "sans-serif";
     margin-top: 10px;
+    padding:0 10px;
+    box-sizing: border-box;
 }
 .datePick2::-webkit-calendar-picker-indicator,
 .datePick3::-webkit-calendar-picker-indicator {
-    margin-right: 10px;
+    margin-right: 0;
 }
 
 .container {
-    width: 70%;
+    width: 100%;
     margin: 0 auto;
     display: flex;
+}
+
+.header{
+    width:70%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top:10px
+
+}
+
+.button{
+    background-color:#3662D8;
+    color:white;
+    border-radius: 8px;
+    min-width:48px;
+    width:150px;
+    height: 40px;
+    border-width: 0;
+    cursor: pointer;
+    border-style: solid;
+    margin-top:15px;
+}
+.button:hover{
+    background-color: rgb(70, 70, 195);
 }
 
 /* .datePick::before{
