@@ -20,6 +20,7 @@ export default async function handler(req, res) {
       };
       
       let hackathonFlightData = [];
+      let sortedData = [];
     // 3 is just used for testing, in order to iterate through the whole list, we should be 
     // doing hackathonData.length
     for (let i = 0; i < 6; i++) {
@@ -48,8 +49,9 @@ export default async function handler(req, res) {
           //const from = req.body.location;
           const from = "New York"
           const to = city;
-          //flight(from, to, departureDate)
+
           const flight_dummy_data = get_flight_data_dummy();
+          //const flight_dummy_data = flight(from, to, departureDate)
           console.log(flight_dummy_data['legs'][0]['carriers'][0]["name"]);
           let hackathonFlightObject = {};
           let hackObject = {};
@@ -81,11 +83,19 @@ export default async function handler(req, res) {
  
           hackathonFlightData.push(hackathonFlightObject);
 
+          sortedData =hackathonFlightData.sort(comparePrices);
+            function comparePrices(a, b)
+            {
+            return a.flight.price < b.flight.price;
+            }
+            
+        console.log(sortedData);
+
 
         }
     }
 
-    res.status(200).send(hackathonFlightData);
+    res.status(200).send(sortedData);
 
 }
 
