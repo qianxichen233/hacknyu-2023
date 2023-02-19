@@ -54,6 +54,8 @@ export default function Home() {
                 Icon: Price,
             };
             flightObject["Carriers"] = hackathon.flight.Carriers;
+            flightObject["Duration"] =
+                hackathon.flight.totalDuration.toFixed(2);
 
             hackData.push({
                 hackathon_info: hackObject,

@@ -45,6 +45,7 @@ const dummyData = {
         },
 
         Carriers: "plane",
+        Duration: "123",
     },
 };
 
