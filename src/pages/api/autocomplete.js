@@ -7,7 +7,7 @@ export default async function handler(req, res) {
 
     const url = `https://api.geoapify.com/v1/geocode/autocomplete?text=${address}&apiKey=${process.env.Geoapify_API_key}`;
 
-    async function fetchMovies(url) {
+    async function fetchAutocompleteData(url) {
         const response = await fetch(url);
         // waits until the request completes...
         const jsonResponse = await response.json();
@@ -15,7 +15,7 @@ export default async function handler(req, res) {
         return jsonResponse;
       }
 
-    const response = await fetchMovies(url);
+    const response = await fetchAutocompleteData(url);
     console.log(response);
     res.status(200).send(response);
   }
