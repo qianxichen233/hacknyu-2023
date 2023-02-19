@@ -21,7 +21,7 @@ const initialState = {
 };
 
 const LocationSearchBar = (props) => {
-    const [address, setAddress] = useState(initialState);
+    const { address, setAddress } = props;
     const [isEnterAddress, setIsEnterAddress] = useState(false);
 
     const addressChangeHandler = (address) => {

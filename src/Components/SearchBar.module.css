@@ -2,7 +2,7 @@
     width: 70%;
     height: 200px;
     background-color: white;
-    margin:0 auto;
+    margin: 0 auto;
 }
 
 .searchInput {
@@ -21,7 +21,6 @@
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
-   
 }
 
 .label {
@@ -59,7 +58,7 @@
     border: 1px solid #727483;
     font-family: "Open Sans", "Helvetica Neue", "Arial", "sans-serif";
     margin-top: 10px;
-    padding:0 10px;
+    padding: 0 10px;
     box-sizing: border-box;
 }
 .datePick2::-webkit-calendar-picker-indicator,
@@ -73,27 +72,26 @@
     display: flex;
 }
 
-.header{
-    width:70%;
+.header {
+    width: 70%;
     margin-left: auto;
     margin-right: auto;
-    margin-top:10px
-
+    margin-top: 10px;
 }
 
-.button{
-    background-color:#3662D8;
-    color:white;
+.button {
+    background-color: #3662d8;
+    color: white;
     border-radius: 8px;
-    min-width:48px;
-    width:150px;
+    min-width: 48px;
+    width: 150px;
     height: 40px;
     border-width: 0;
     cursor: pointer;
     border-style: solid;
-    margin-top:15px;
+    margin-top: 15px;
 }
-.button:hover{
+.button:hover {
     background-color: rgb(70, 70, 195);
 }
 
@@ -101,3 +99,8 @@
     content:"End Date";
     color:blue
 } */
+
+.disabled {
+    background-color: grey !important;
+    cursor: default !important;
+}
