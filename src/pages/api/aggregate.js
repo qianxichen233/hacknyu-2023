@@ -35,7 +35,7 @@ export default async function handler(req, res) {
     let sortedData = [];
     // 3 is just used for testing, in order to iterate through the whole list, we should be
     // doing hackathonData.length
-    for (let i = 0; i < 6; i++) {
+    for (let i = 0; i < 10; i++) {
         if (typeof hackathonData[i].date != "undefined") {
             const hackathonObject = hackathonData[i];
             const dateRange = hackathonObject.date;
@@ -60,7 +60,13 @@ export default async function handler(req, res) {
             //const from = req.body.location;
             const from = "New York City";
             const to = city;
-            if (city == "Rochester" || city == "Kolkata") {
+            if (
+                city == "Rochester" ||
+                city == "Kolkata" ||
+                city == "Stony Brook" ||
+                city == "Ghaziabad" ||
+                city == "Athens"
+            ) {
                 continue;
             }
 
