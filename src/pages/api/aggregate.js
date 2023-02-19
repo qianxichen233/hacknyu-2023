@@ -47,11 +47,15 @@ export default async function handler(req, res) {
           console.log(newDateString);
           
           //const from = req.body.location;
-          const from = "New York"
+          const from = "New York City"
           const to = city;
+          if (city == 'Rochester' || city == 'Kolkata') {
+            continue;
+          }
 
-          const flight_dummy_data = get_flight_data_dummy();
-          //const flight_dummy_data = flight(from, to, departureDate)
+          //const flight_dummy_data = get_flight_data_dummy();
+          const flight_dummy_data = await flight(from, to, newDateString)
+          console.log(flight_dummy_data)
           console.log(flight_dummy_data['legs'][0]['carriers'][0]["name"]);
           let hackathonFlightObject = {};
           let hackObject = {};
@@ -63,6 +67,7 @@ export default async function handler(req, res) {
           hackObject["hackathonLocation"] = city;
           hackObject["hackathonDate"] = dateRange;
           hackObject["imgURL"] = hackathonObject.logoImageURL;
+          hackObject["url"] = hackathonObject.url;
 
           flightSource["name"] = flight_dummy_data['legs'][0]['origin']['name'];
           flightSource["displayCode"] = flight_dummy_data['legs'][0]['origin']['display_code'];
