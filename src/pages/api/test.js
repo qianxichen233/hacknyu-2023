@@ -32,17 +32,15 @@ export default function handler(req, res) {
             //console.log('MLHDATA is', mlhData);
         }
         console.log('MLHDATA is', mlhData);
+
+        res.status(200).json({
+            mlhData
+    })
         
     }).catch(err => {
         console.log(err);
     });
 
-    // res.status(200).json({
-    //     name: 'Hackathons Extracted'
-    // })
-    res.status(200).json({
-            mlhData
-    })
 }
 
 function getProperty(domObject, positions, propertyIndex){
@@ -78,8 +76,14 @@ function getProperty(domObject, positions, propertyIndex){
             const cityIndex = 0;
             const StateOrCountryIndex = 1;
             let cityAndState = mainContainer.children[propertyIndex];
-            console.log(cityAndState.children[cityIndex].textContent);
-            console.log(cityAndState.children[StateOrCountryIndex].textContent);
+            return {
+                city : cityAndState.children[cityIndex].textContent, 
+                stateOrCountry: cityAndState.children[StateOrCountryIndex].textContent
+            }
+            // console.log(cityAndState.children[cityIndex].textContent);
+            // console.log(cityAndState.children[StateOrCountryIndex].textContent);
+
+            // return locationObj;
         }
 
 
