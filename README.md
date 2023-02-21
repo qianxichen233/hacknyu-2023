@@ -1,38 +1,14 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Soteria
+Soteria is a platform that allows hackers to search for hackathons based on the availability of cheap flights, not just in US, but all over the world.
 
-## Getting Started
+![Soteria](images/homePage.jpeg)
 
-First, run the development server:
+## Inspiration
+As big hackathon fans, we always wants to attend hackathons on the west coast and midwest. However, enonomy is a big problem for our students. We always find it difficult to book flights, pick the right prices, and wait for the prices to go lower and this process is especially difficult when there are MULTIPLE hackathons happening at the same time. Now you don't have to worry about this problem because Soteria help you make the best choice.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+## Tech Stack
+We used NodeJS for backend with ReactJS (NextJS) for front end. We scrapped the data from MLH's events API to get the hackathon data. And We interacted with three APIs to collect all the data we need.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Setup:
+- run ```npm i && npm run dev``` 
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
