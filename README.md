@@ -1,6 +1,7 @@
 # Soteria
 Soteria is a platform that allows hackers to search for hackathons based on the availability of cheap flights, not just in US, but all over the world.
 
+
 ![Soteria](https://ibb.co/zPrvVRZ)
 
 ## Inspiration
